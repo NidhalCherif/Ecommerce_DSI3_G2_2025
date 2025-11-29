@@ -1,7 +1,7 @@
 
 <?php
-require_once "connexion.php";
-require_once "model/CRUD_Produit.php";
+
+require_once "../../model/CRUD_Produit.php";
 
 $crud = new CRUD_Produit();
 for ($i = 2; $i < 100; $i++) {
@@ -16,7 +16,5 @@ Modi numquam quaerat officia quibusdam alias consequatur. Hic excepturi officia 
     $image = "https://picsum.photos/400?random=$i";
     $promo = random_int(0, 1);
     $obj = new Produit(null, $lib, $prix, $qte, $image, $des, $promo);
-
-    if (!$crud->add($obj))
-        echo "pb d'insertion";
+    $crud->add($obj);
 }
